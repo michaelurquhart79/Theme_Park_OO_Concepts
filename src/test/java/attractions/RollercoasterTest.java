@@ -54,8 +54,26 @@ public class RollercoasterTest {
     }
 
     @Test
-    public void AllowedIfOverAgeAndTallEnough(){
+    public void allowedIfOverAgeAndTallEnough(){
         assertEquals(true, rollerCoaster.isAllowedTo(oldTall));
+    }
+
+    @Test
+    public void returnsDefaultPrice() {
+        assertEquals(8.40, rollerCoaster.defaultPrice(), 0.01);
+    }
+
+
+
+    @Test
+    public void isChargedDefaultPriceIfLessThan200cm() {
+        assertEquals(8.40, rollerCoaster.priceFor(youngTall), 0.01);
+
+    }
+
+    @Test
+    public void isChargedDoubleIfGreaterThan200cm(){
+        assertEquals(16.80, rollerCoaster.priceFor(oldTall), 0.01);
     }
 
 
