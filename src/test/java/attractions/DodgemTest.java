@@ -49,4 +49,10 @@ public class DodgemTest {
     public void hasToPayFullPriceIfOld() {
         assertEquals(4.50, dodgems.priceFor(oldVisitor), 0.001);
     }
+
+    @Test
+    public void canIncrementVisitorCount() {
+        dodgems.incrementVisitCount();
+        assertEquals(1, dodgems.getVisitCount());
+    }
 }
