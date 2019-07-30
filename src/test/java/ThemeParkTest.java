@@ -50,4 +50,9 @@ public class ThemeParkTest {
     public void themeParkHas3Stalls() {
         assertEquals(3, themePark.stallsCount());
     }
+
+    @Test
+    public void themeParkHas6ReviewedObjects() {
+        assertEquals(6, themePark.getAllReviewed().size());
+    }
 }
