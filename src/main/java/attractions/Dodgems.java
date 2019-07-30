@@ -5,15 +5,15 @@ import people.Visitor;
 
 public class Dodgems extends Attraction implements ITicketed {
 
-    private double standardPrice;
+    private double defaultPrice;
 
     public Dodgems(String name, int rating) {
         super(name, rating);
-        this.standardPrice = 4.50;
+        this.defaultPrice = 4.50;
     }
 
     public double defaultPrice() {
-        return this.standardPrice;
+        return this.defaultPrice;
     }
 
     public double priceFor(Visitor visitor) {
