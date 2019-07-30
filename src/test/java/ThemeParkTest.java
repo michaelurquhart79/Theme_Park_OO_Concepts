@@ -4,6 +4,7 @@ import attractions.Playground;
 import attractions.RollerCoaster;
 import org.junit.Before;
 import org.junit.Test;
+import people.Visitor;
 import stalls.*;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class ThemeParkTest {
     private ArrayList<Attraction> attractions;
     private ArrayList<Stall> stalls;
     private ThemePark themePark;
+    private Visitor visitor1;
 
     @Before
     public void before() {
@@ -39,6 +41,7 @@ public class ThemeParkTest {
         stalls.add(iceCreamStall);
         stalls.add(tobaccoStall);
         themePark = new ThemePark(attractions,stalls);
+        visitor1 = new Visitor(20, 185, 50.00);
     }
 
     @Test
@@ -55,4 +58,13 @@ public class ThemeParkTest {
     public void themeParkHas6ReviewedObjects() {
         assertEquals(6, themePark.getAllReviewed().size());
     }
+
+    @Test
+    public void canAllowAVisitorToVisitAnAttraction() {
+        themePark.visit(visitor1, dodgems);
+        assertEquals(1, visitor1.visitedAttractionsCount());
+        assertEquals(1, dodgems.getVisitCount());
+    }
 }
+//    ThemePark has a method visit(Visitor, Attraction) calls for the attraction to increment its visitCount by 1
+//        and adds the attraction to the visitors visitedAttractions list.

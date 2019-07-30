@@ -1,5 +1,7 @@
 import attractions.Attraction;
+import attractions.Dodgems;
 import behaviours.IReviewed;
+import people.Visitor;
 import stalls.Stall;
 
 import java.util.ArrayList;
@@ -29,4 +31,12 @@ public class ThemePark {
 
         return allReviewed;
     }
+
+    public void visit(Visitor visitor, Attraction attraction) {
+        visitor.visitAttraction(attraction);
+        attraction.incrementVisitCount();
+    }
 }
+
+//    ThemePark has a method visit(Visitor, Attraction) calls for the attraction to increment its visitCount by 1
+//        and adds the attraction to the visitors visitedAttractions list.
